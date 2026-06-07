@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Order genuine German skincare with Cash on Delivery. Balea and Babylove shipped across Pakistan.">
+  <title>Place Your Order — Cash on Delivery | KLARE</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:64px">
+      <a href="index.html" class="logo">KLARE</a>
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="order.html">Order</a>
+      </nav>
+      <button class="hamburger" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+  <nav class="mobile-nav">
+    <button class="menu-close">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="order.html">Order Now</a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <h1>Place Your Order</h1>
+        <p>ادائیگی ڈلیوری پر / Cash on Delivery — Pay when your order arrives.</p>
+      </div>
+    </div>
+
+    <!-- FORM + SIDEBAR -->
+    <section class="section">
+      <div class="container">
+        <div class="form-layout">
+
+          <!-- ORDER FORM -->
+          <div>
+            <form id="order-form" novalidate>
+
+              <div class="form-group">
+                <label for="name">آپ کا نام / Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">فون نمبر / Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="03XX-XXXXXXX">
+              </div>
+
+              <div class="form-group">
+                <label for="city">شہر / City *</label>
+                <input type="text" id="city" name="city" required placeholder="e.g. Lahore, Karachi, Islamabad">
+              </div>
+
+              <div class="form-group">
+                <label for="address">مکمل پتہ / Complete Address *</label>
+                <textarea id="address" name="address" required placeholder="House number, street, area..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="product">پروڈکٹ / Product *</label>
+                <select id="product" name="product" required>
+                  <option value="" disabled selected>— Select a product —</option>
+                  <optgroup label="Balea Skincare">
+                    <option value="Balea Face Cream Q10 — PKR 1,200">Balea Face Cream Q10 — PKR 1,200</option>
+                    <option value="Balea Micellar Water — PKR 950">Balea Micellar Water — PKR 950</option>
+                    <option value="Balea Eye Cream — PKR 1,400">Balea Eye Cream — PKR 1,400</option>
+                    <option value="Balea Body Lotion — PKR 850">Balea Body Lotion — PKR 850</option>
+                    <option value="Balea Lip Balm Set — PKR 750">Balea Lip Balm Set — PKR 750</option>
+                    <option value="Balea Hair Mask — PKR 450">Balea Hair Mask — PKR 450</option>
+                  </optgroup>
+                  <optgroup label="Babylove Baby Care">
+                    <option value="Babylove Baby Shampoo — PKR 1,100">Babylove Baby Shampoo — PKR 1,100</option>
+                    <option value="Babylove Nappy Cream — PKR 950">Babylove Nappy Cream — PKR 950</option>
+                    <option value="Babylove Baby Lotion — PKR 1,000">Babylove Baby Lotion — PKR 1,000</option>
+                    <option value="Babylove Wet Wipes — PKR 600">Babylove Wet Wipes — PKR 600</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quantity">تعداد / Quantity *</label>
+                <input type="number" id="quantity" name="quantity" required min="1" max="10" value="1">
+              </div>
+
+              <div class="form-group">
+                <label for="notes">نوٹ / Notes (optional)</label>
+                <textarea id="notes" name="notes" placeholder="Special instructions, gift message, colour preference..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary submit-btn">آرڈر کریں — Place Order</button>
+
+              <!-- CONFIRMATION -->
+              <div id="order-confirm" class="order-confirm">
+                <h3>&#10003; شکریہ! Thank you!</h3>
+                <p>We will call <strong id="confirm-phone"></strong> within 2 hours to confirm your order.</p>
+                <p style="margin-top:8px;font-size:14px;color:#555">A WhatsApp message has also been sent with your order details.</p>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div>
+
+            <div class="sidebar-box">
+              <h3>&#128154; Why Cash on Delivery?</h3>
+              <ul>
+                <li>No advance payment required</li>
+                <li>Inspect the product before paying</li>
+                <li>Return at doorstep if not satisfied</li>
+                <li>100% safe — zero financial risk</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-box">
+              <h3>&#128666; Delivery</h3>
+              <p><strong>Lahore:</strong> 1–2 working days</p>
+              <p><strong>Other cities:</strong> 2–3 working days</p>
+              <p><strong>Delivery fee:</strong> PKR 200</p>
+              <p><strong>Free delivery</strong> on orders over PKR 3,000</p>
+            </div>
+
+            <div class="sidebar-box">
+              <h3>&#128172; Need Help?</h3>
+              <p>Chat with us before ordering. We answer fast.</p>
+              <p style="margin-bottom:16px"><strong>Hours:</strong> 9am – 9pm daily</p>
+              <a href="https://wa.me/923001234567" class="btn-primary" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block">
+                &#128172; WhatsApp: 0300-1234567
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:white;font-size:28px;margin-bottom:8px">KLARE</div>
+          <p style="opacity:0.7;font-size:14px">Authentic German skincare imported to Pakistan.</p>
+        </div>
+        <div>
+          <strong>Pages</strong>
+          <a href="index.html" style="display:block;margin-bottom:6px;font-size:14px">Home</a>
+          <a href="products.html" style="display:block;margin-bottom:6px;font-size:14px">Products</a>
+          <a href="about.html" style="display:block;margin-bottom:6px;font-size:14px">About</a>
+          <a href="order.html" style="display:block;margin-bottom:6px;font-size:14px">Order</a>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <p style="font-size:14px;opacity:0.8;margin-bottom:4px">WhatsApp: 0300-1234567</p>
+          <p style="font-size:14px;opacity:0.8">Email: hello@klare.pk</p>
+        </div>
+      </div>
+      <p style="opacity:0.5;font-size:12px;margin-top:0;text-align:center">&copy; 2025 KLARE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/923001234567" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
