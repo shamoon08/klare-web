@@ -87,32 +87,6 @@
   });
 })();
 
-/* ── Lightbox (about page proof images) ── */
-(function () {
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImg = document.getElementById('lightbox-img');
-  var closeBtn = document.querySelector('.lightbox-close');
-  if (!lightbox) return;
-
-  document.querySelectorAll('.proof-img[data-src]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      var src = el.getAttribute('data-src');
-      lightboxImg.src = src;
-      lightbox.classList.add('open');
-    });
-  });
-
-  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
-
-  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-})();
-
 /* ── Order form submission ── */
 (function () {
   var form = document.getElementById('order-form');
@@ -144,7 +118,7 @@
       + (notes ? 'Notes: ' + notes + '\n' : '')
       + '\nPlease confirm my order. Thank you!';
 
-    var waUrl = 'https://wa.me/923001234567?text=' + encodeURIComponent(msg);
+    var waUrl = 'https://wa.me/923456901219?text=' + encodeURIComponent(msg);
     window.open(waUrl, '_blank');
 
     if (confirmEl) confirmEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
