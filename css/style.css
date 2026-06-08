@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-/* ── Variables — German flag colours ── */
+/* ── Variables — black & white with German flag as art only ── */
 :root {
   --black: #000000;
-  --red: #DD0000;
-  --gold: #FFCE00;
   --white: #FFFFFF;
   --grey: #F5F5F0;
   --dark: #1A1A1A;
+  --mid: #444444;
   --shadow: 0 2px 12px rgba(0,0,0,0.10);
+  /* German flag colours — used ONLY for flag artwork, never as UI colours */
+  --de-black: #000000;
+  --de-red:   #DD0000;
+  --de-gold:  #FFCE00;
 }
 
 /* ── Base ── */
@@ -38,17 +41,31 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: var(--black);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  background: var(--white);
+  box-shadow: 0 1px 0 #e0e0e0, 0 2px 12px rgba(0,0,0,0.06);
   height: 64px;
   z-index: 100;
+}
+
+/* 3-stripe German flag line under the header — artwork, not UI colour */
+header::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right,
+    var(--de-black) 0% 33.33%,
+    var(--de-red)   33.33% 66.66%,
+    var(--de-gold)  66.66% 100%
+  );
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--black);
   letter-spacing: 2px;
 }
 
@@ -58,17 +75,17 @@ header {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.5px;
-  color: rgba(255,255,255,0.85);
+  color: var(--mid);
   transition: color 0.2s;
 }
-.desktop-nav a:hover { color: var(--gold); }
+.desktop-nav a:hover { color: var(--black); }
 
 .hamburger {
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--white);
+  color: var(--black);
   padding: 8px;
   min-height: 44px;
   min-width: 44px;
@@ -95,7 +112,7 @@ header {
   font-weight: 700;
   color: var(--white);
 }
-.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav a:hover { opacity: 0.7; }
 .menu-close {
   position: absolute;
   top: 20px; right: 24px;
@@ -141,24 +158,24 @@ footer p { margin: 0; }
 .whatsapp-btn {
   position: fixed;
   bottom: 24px; right: 24px;
-  background: var(--red);
+  background: var(--black);
   width: 56px; height: 56px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(221,0,0,0.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
   z-index: 200;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .whatsapp-btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(221,0,0,0.5);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
 /* ── Buttons ── */
 .btn-primary {
-  background: var(--red);
+  background: var(--black);
   color: var(--white);
   padding: 14px 28px;
   border-radius: 6px;
@@ -166,30 +183,30 @@ footer p { margin: 0; }
   font-family: 'Lato', sans-serif;
   font-size: 15px;
   display: inline-block;
-  border: 2px solid var(--red);
+  border: 2px solid var(--black);
   cursor: pointer;
   min-height: 44px;
   transition: background 0.2s, transform 0.1s;
   text-align: center;
 }
-.btn-primary:hover { background: #bb0000; border-color: #bb0000; }
+.btn-primary:hover { background: #333; border-color: #333; }
 
 .btn-secondary {
   background: transparent;
-  color: var(--red);
+  color: var(--black);
   padding: 14px 28px;
   border-radius: 6px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   font-size: 15px;
   display: inline-block;
-  border: 2px solid var(--red);
+  border: 2px solid var(--black);
   cursor: pointer;
   min-height: 44px;
   transition: background 0.2s, color 0.2s;
   text-align: center;
 }
-.btn-secondary:hover { background: var(--red); color: var(--white); }
+.btn-secondary:hover { background: var(--black); color: var(--white); }
 
 .btn-secondary.white-border {
   color: var(--white);
@@ -199,6 +216,55 @@ footer p { margin: 0; }
 
 /* ── Page offset for fixed header ── */
 main { padding-top: 64px; }
+
+/* ── German flag artwork elements ── */
+
+/* Small flag SVG badge on product cards — in image corner */
+.de-flag-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  display: block;
+}
+
+/* Decorative horizontal flag stripe — used as section accent */
+.flag-stripe {
+  width: 64px;
+  height: 8px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto 24px;
+  background: linear-gradient(to bottom,
+    var(--de-black) 0% 33.33%,
+    var(--de-red)   33.33% 66.66%,
+    var(--de-gold)  66.66% 100%
+  );
+}
+
+/* Hero flag artwork block */
+.hero-germany {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.hero-germany svg {
+  border-radius: 3px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+.hero-germany span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  color: var(--white);
+}
 
 /* ── Hero ── */
 .hero {
@@ -221,7 +287,7 @@ main { padding-top: 64px; }
 }
 .hero .badge {
   display: inline-block;
-  background: var(--gold);
+  background: var(--white);
   color: var(--black);
   border-radius: 20px;
   padding: 6px 16px;
@@ -269,10 +335,10 @@ main { padding-top: 64px; }
   padding: 32px 24px;
   background: var(--grey);
   border-radius: 8px;
-  border-top: 3px solid var(--red);
+  border-top: 3px solid var(--black);
 }
 .why-icon { font-size: 36px; margin-bottom: 12px; }
-.why-card h3 { font-size: 20px; margin: 0 0 8px; color: var(--red); }
+.why-card h3 { font-size: 20px; margin: 0 0 8px; color: var(--black); }
 .why-card p { margin: 0; color: #555; font-size: 15px; }
 
 /* ── Cards grids ── */
@@ -310,6 +376,7 @@ main { padding-top: 64px; }
   font-size: 13px;
   text-align: center;
   padding: 8px;
+  position: relative; /* needed for the flag badge absolute position */
 }
 .product-card .card-body {
   padding: 16px;
@@ -329,20 +396,23 @@ main { padding-top: 64px; }
   flex: 1;
 }
 .product-card .price {
-  color: var(--red);
+  color: var(--black);
   font-weight: 700;
   font-size: 18px;
   margin: 0 0 8px;
 }
 .badge-small {
   font-size: 11px;
-  background: var(--gold);
-  color: var(--black);
+  background: var(--grey);
+  color: var(--dark);
   padding: 3px 8px;
   border-radius: 10px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   margin-bottom: 12px;
   font-weight: 700;
+  border: 1px solid #ddd;
 }
 .product-card .btn-primary { font-size: 13px; padding: 10px 16px; width: 100%; }
 
@@ -375,7 +445,7 @@ main { padding-top: 64px; }
 .brand-banner h1 {
   font-size: 48px;
   margin: 0 0 8px;
-  color: var(--gold);
+  color: var(--white);
 }
 .brand-banner p { opacity: 0.85; font-size: 18px; margin: 0; }
 
@@ -384,7 +454,7 @@ main { padding-top: 64px; }
   background: var(--grey);
   padding: 48px 0 32px;
   text-align: center;
-  border-bottom: 3px solid var(--gold);
+  border-bottom: 3px solid var(--black);
 }
 .page-header h1 { font-size: 36px; margin: 0 0 12px; }
 .page-header p { color: #555; max-width: 640px; margin: 0 auto; }
@@ -399,8 +469,8 @@ main { padding-top: 64px; }
 .filter-tab {
   padding: 8px 20px;
   border-radius: 20px;
-  border: 1px solid var(--red);
-  color: var(--red);
+  border: 1px solid var(--black);
+  color: var(--black);
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
@@ -410,7 +480,7 @@ main { padding-top: 64px; }
   transition: background 0.2s, color 0.2s;
 }
 .filter-tab:hover, .filter-tab.active {
-  background: var(--red);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -448,7 +518,7 @@ main { padding-top: 64px; }
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--red);
+  border-color: var(--black);
 }
 .form-group textarea { min-height: 100px; resize: vertical; }
 
@@ -464,7 +534,7 @@ main { padding-top: 64px; }
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 20px;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--black);
 }
 .sidebar-box h3 {
   font-size: 16px;
@@ -480,20 +550,20 @@ main { padding-top: 64px; }
   font-size: 14px;
   color: #555;
 }
-.sidebar-box ul li::before { content: '✓ '; color: var(--red); font-weight: 700; }
+.sidebar-box ul li::before { content: '✓ '; color: var(--black); font-weight: 700; }
 .sidebar-box p { margin: 0 0 8px; font-size: 14px; color: #555; }
 
 .order-confirm {
   display: none;
-  background: #fff3f3;
-  border: 1px solid var(--red);
+  background: #f5f5f5;
+  border: 1px solid var(--black);
   border-radius: 8px;
   padding: 24px;
   text-align: center;
   margin-top: 24px;
 }
 .order-confirm.show { display: block; }
-.order-confirm h3 { color: var(--red); margin: 0 0 8px; }
+.order-confirm h3 { color: var(--black); margin: 0 0 8px; }
 
 /* ── About page — Promise grid ── */
 .promise-grid {
@@ -517,12 +587,12 @@ main { padding-top: 64px; }
   content: '';
   display: block;
   height: 4px;
-  background: var(--gold);
+  background: var(--black);
   position: absolute;
   top: 0; left: 0; right: 0;
 }
 .promise-icon { font-size: 40px; margin-bottom: 16px; }
-.promise-card h3 { font-size: 17px; margin: 0 0 10px; color: var(--red); }
+.promise-card h3 { font-size: 17px; margin: 0 0 10px; color: var(--black); }
 .promise-card p { font-size: 14px; color: #555; margin: 0; line-height: 1.6; }
 
 /* ── Stats grid ── */
@@ -539,12 +609,12 @@ main { padding-top: 64px; }
   padding: 32px 16px;
   background: var(--grey);
   border-radius: 8px;
-  border-bottom: 3px solid var(--gold);
+  border-bottom: 3px solid var(--black);
 }
 .stat-number {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
-  color: var(--red);
+  color: var(--black);
   display: block;
   line-height: 1.1;
 }
@@ -562,8 +632,8 @@ main { padding-top: 64px; }
   gap: 12px;
   transition: color 0.2s;
 }
-.faq-question:hover { color: var(--red); }
-.faq-toggle { font-size: 20px; color: var(--red); flex-shrink: 0; transition: transform 0.2s; }
+.faq-question:hover { color: var(--mid); }
+.faq-toggle { font-size: 20px; color: var(--black); flex-shrink: 0; transition: transform 0.2s; }
 .faq-item.open .faq-toggle { transform: rotate(45deg); }
 .faq-answer {
   display: none;
@@ -581,7 +651,7 @@ main { padding-top: 64px; }
   padding: 64px 0;
   text-align: center;
 }
-.about-hero h1 { font-size: 32px; margin: 0 0 20px; line-height: 1.2; color: var(--gold); }
+.about-hero h1 { font-size: 32px; margin: 0 0 20px; line-height: 1.2; color: var(--white); }
 .about-hero p { max-width: 680px; margin: 0 auto 16px; opacity: 0.9; font-size: 16px; line-height: 1.7; }
 @media (min-width: 768px) {
   .about-hero h1 { font-size: 44px; }
@@ -599,7 +669,6 @@ main { padding-top: 64px; }
 .contact-details span { display: block; margin-bottom: 4px; }
 
 /* ── Utilities ── */
-.text-red { color: var(--red); }
 .text-center { text-align: center; }
 .mt-8 { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
