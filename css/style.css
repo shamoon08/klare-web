@@ -357,6 +357,20 @@ main { padding-top: 64px; }
   .grid-2 { gap: 24px; }
 }
 
+/* ── Product image wrapper (real photos) ── */
+.img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ── Product card ── */
 .product-card {
   background: var(--white);
